@@ -1,0 +1,57 @@
+<!--
+  This template loads for the 'tab.friend-detail' state (app.js)
+  'friend' is a $scope variable created in the FriendsCtrl controller (controllers.js)
+  The FriendsCtrl pulls data from the Friends service (service.js)
+  The Friends service returns an array of friend data
+-->
+<ion-view view-title="">
+    <ion-content class="padding">
+        <ul class="list">
+            <li class="item item-checkbox">
+                <label class="checkbox">
+                    <input type="checkbox">
+                </label>
+                Wrong amount was charged
+            </li>
+            <li class="item item-checkbox">
+                <label class="checkbox">
+                    <input type="checkbox">
+                </label>
+                Wrong merchant name
+            </li>
+            <li class="item item-checkbox">
+                <label class="checkbox">
+                    <input type="checkbox">
+                </label>
+                My card was stolen
+            </li>
+            <li class="item item-checkbox">
+                <label class="checkbox">
+                    <input type="checkbox">
+                </label>
+                I did not sign the receipt
+            </li>
+            <label class="item item-input">
+                <textarea placeholder="Additional Information"></textarea>
+            </label>
+            <a class="button button-block button-positive" onclick='swal({
+    title: "Are you sure?",
+    text: "You are about to file a formal fraud report!",
+    type: "warning",
+    showCancelButton: true,
+    confirmButtonColor: "#DD6B55",
+    confirmButtonText: "Yes, file the report!",
+    closeOnConfirm: false
+}, function(){
+    swal({title: "Success",
+        text: "Your report has been submitted.",
+        type: "success",
+        showCancelButton: false},
+        function(){
+            window.location="#/tabs/dash";
+})});'>
+                Submit Report
+            </a>
+        </ul>
+    </ion-content>
+</ion-view>

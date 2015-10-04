@@ -1,0 +1,40 @@
+<ion-view view-title="Dashboard" hide-back-button="true">
+    <ion-content class="padding">
+        <ion-refresher on-refresh="doRefresh()">
+      </ion-refresher>
+        <div ng-repeat="purchase in purchases" class="list card">
+            <div class="item item-avatar">
+                <img src="{{purchase.merchant.avatar}}" />
+                <h2>{{purchase.description}}</h2>
+                <p>{{purchase.merchant.name}}</p>
+            </div>
+            <div class="item item-body">
+                <div>
+                    <div class="item">
+                        <div class="list">
+                            <a class="item item-icon-left">
+                                <i class="icon ion-cash"></i> {{purchase.amount | currency}}
+                            </a>
+                            <a class="item item-icon-left" href="#">
+                                <i class="icon ion-calendar"></i> {{purchase.purchase_date}}
+                            </a>
+                            <a class="item item-icon-left" href="#">
+                                <i class="icon ion-location"></i> {{purchase.merchant.address}}
+                            </a>
+                            <a class="item item-icon-left" href="#">
+                                <i class="icon ion-map"></i> {{purchase.merchant.city}}
+                            </a>
+                        </div>
+
+                        <!--<map center="{{purchase.merchant.geocord}}" zoom="14">
+                            <marker position="{{purchase.merchant.geocord}}" title="{{purchase.merchant.name}}"></marker>
+                        </map>-->
+                    </div>
+                </div>
+            </div>
+            <a class="item item-icon-left assertive" href="#/tab/dash/report/{{purchase._id}}">
+                <i class="icon ion-flag"></i> I did not authorize this purchase
+            </a>
+        </div>
+    </ion-content>
+</ion-view>
